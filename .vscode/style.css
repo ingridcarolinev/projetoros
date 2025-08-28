@@ -83,6 +83,8 @@ body * {
   transform: translateY(-50%);
   z-index: 1;
   -webkit-backdrop-filter: blur(4px);
+
+  animation: slide-back 0.3s;
 }
 
 #switch span {
@@ -96,8 +98,11 @@ body * {
 }
 
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slide-in 0.3s forwards;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 
 /*links*/
@@ -168,10 +173,29 @@ footer {
 /* media queries */
 @media (min-width: 700px) {
   :root {
-    --bg-url: url(./assets/bg-mobilee.jpg);
+    --bg-url: url(./assets/bg-mobilee.png);
   }
 
   .light {
-    --bg-url: url(./assets/bg-mobileee.jpg);
+    --bg-url: url(./assets/bg-mobileee.png);
+  }
+}
+
+/* animation */
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
   }
 }
